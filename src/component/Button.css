@@ -1,0 +1,66 @@
+.cc-button {
+    --cc-button-bg-color: #d8e1e8;
+    --cc-button-color: #202b33;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    margin: 3px;
+    padding: 0.3em;
+    cursor: pointer;
+    font-weight: 700;
+    
+    min-width: 0.5em;
+    min-height: 0.5em;
+
+    border-radius: 0.2em;
+    border: 1px solid var(--cc-button-bg-color);
+    background-color: var(--cc-button-bg-color);
+    color: var(--cc-button-color);
+}
+
+.cc-button:focus {
+    box-shadow: 0 1px 3px #8a9ba8;
+    outline: 0;
+}
+.cc-button:not(.disabled):hover {
+    box-shadow: 0 1px 3px #8a9ba8;
+}
+.cc-button:not(.disabled):active {
+    box-shadow: 0 1px 3px #5c7080;
+}
+
+
+/* intent */
+.cc-button.primary {
+    --cc-button-bg-color: #26547c;
+    --cc-button-color: #fff;
+}
+
+.cc-button.success {
+    --cc-button-bg-color: #0f9960;
+    --cc-button-color: #fff;
+}
+
+.cc-button.danger {
+    --cc-button-bg-color: #c23030;
+    --cc-button-color: #fff;
+}
+
+.cc-button.disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+
+/* icon */
+.cc-button > .cc-button-icon > svg:not([fill]) {
+    fill: var(--cc-button-color)
+}
+
+/* label */
+.cc-button > .cc-button-label {
+    margin-right: 0.3em;
+    margin-left: 0.3em;
+}
+
