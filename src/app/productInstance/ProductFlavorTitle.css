@@ -1,0 +1,17 @@
+.tp-product-flavor-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.tp-product-flavor-title .tp-product-flavor-title-instance {
+    font-size: 0.6em;
+    font-weight: normal;
+    margin-right: 0.3em;
+}
+
+.tp-product-flavor-title .tp-product-flavor-title-name {
+    flex: 1;
+}
+
+.tp-product-flavor-title .tp-product-flavor-title-price {
+}
