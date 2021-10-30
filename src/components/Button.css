@@ -56,8 +56,11 @@ button.cc-button {
 }
 
 /* icon */
+.cc-button > .cc-button-icon {
+    display: contents;
+}
 .cc-button > .cc-button-icon > svg:not([fill]) {
-    fill: var(--cc-button-color)
+    fill: var(--cc-button-color);
 }
 
 /* label */
