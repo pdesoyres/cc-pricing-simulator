@@ -1,3 +1,21 @@
-.application {
+.tp-application {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+}
 
+.tp-application .tp-loading {
+    align-self: center;
+    justify-self: center;
+}
+
+.tp-application .tp-loading-error {
+    align-self: center;
+    justify-self: center;
+    max-width: 50%;
+
+    border: 1px solid #c23030;
+    border-radius: 0.2em;
+    padding: 1em;
+    color: #c23030;
 }
