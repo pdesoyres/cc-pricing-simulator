@@ -22,4 +22,5 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
   color: var(--cc-color-text-normal);
+  font-size: 1vw;
 }

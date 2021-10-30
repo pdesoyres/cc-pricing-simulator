@@ -1,6 +1,6 @@
 export const Icon = ({
   svg,
-  size = 16,
+  size = '1em',
   color
 }) => {
   const Svg = svg;
