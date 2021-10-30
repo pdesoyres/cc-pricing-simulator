@@ -1,0 +1,5 @@
+img.tp-product-instance-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--cc-border-radius-small);
+}
