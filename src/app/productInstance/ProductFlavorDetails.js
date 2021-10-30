@@ -5,7 +5,6 @@ import { Numeric } from '../../components/Numeric';
 /**
  * Displays the details of a product flavor:
  * <ul>
- *   <li>Price
  *   <li>Number of CPUs
  *   <li>Number of GPUs
  *   <li>Amount of memory
@@ -21,9 +20,6 @@ export const ProductFavorDetails = ({
   className,
 }) => {
   return <div className={classnames('tp-product-flavor-details', className)}>
-    <div className='tp-product-flavor-details-label'>Price</div>
-    <div className='tp-product-flavor-details-value'><Numeric value={productFlavor.price} precision={2} unit='€'/></div>
-
     <div className='tp-product-flavor-details-label'>CPUs</div>
     <div className='tp-product-flavor-details-value'><Numeric value={productFlavor.cpus}/></div>
 
