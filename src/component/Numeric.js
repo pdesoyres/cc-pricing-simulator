@@ -1,10 +1,10 @@
+import './Numeric.css'
 import { classnames } from '../utils/classnames';
 import { round } from '../utils/round';
-import './Currency.css'
 
-export const Currency = ({
+export const Numeric = ({
   value = 0,
-  unit = '€',
+  unit,
   precision = -1,
   className
 }) => {
@@ -12,7 +12,12 @@ export const Currency = ({
     value = round(value, precision);
   }
 
-  return <span className={classnames('cc-currency', className)}>
-    {value} {unit}
+  const values = [value];
+  if (unit) {
+    values.push(unit);
+  }
+
+  return <span className={classnames('cc-numeric', className)}>
+    {values.join(' ')}
   </span>
 };
