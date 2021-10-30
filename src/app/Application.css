@@ -14,8 +14,8 @@
     justify-self: center;
     max-width: 50%;
 
-    border: 1px solid #c23030;
-    border-radius: 0.2em;
+    border: 1px solid var(--cc-color-danger);
+    border-radius: var(--cc-border-radius-normal);
     padding: 1em;
-    color: #c23030;
+    color: var(--cc-color-danger);
 }

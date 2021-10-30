@@ -2,6 +2,7 @@ import './Application.css';
 import { Component } from 'react';
 import { Spinner } from '../components/Spinner';
 import { applicationService } from './applicationService';
+import { InvoicingSimulator } from './invoicingSimulator/InvoicingSimulator';
 
 /**
  * This the root component of our application. It has the ability to:
@@ -37,7 +38,7 @@ export class Application extends Component {
   }
 
   renderInvoicingSimulator(productInstances) {
-    return "invoicing simulator TBD...";
+    return <InvoicingSimulator productInstances={productInstances}/>;
   }
 
   renderApplication() {
