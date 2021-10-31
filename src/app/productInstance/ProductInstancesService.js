@@ -69,7 +69,7 @@ class ProductInstancesService {
       gpus: rawProductFlavor.gpus,
       available: rawProductFlavor.available,
       microservice: rawProductFlavor.microservice,
-      machine_learning: rawProductFlavor.machine_learning,
+      machineLearning: rawProductFlavor.machine_learning,
     }));
 
     // preload logo image
@@ -108,5 +108,5 @@ export const productInstancesService = new ProductInstancesService();
  * @property {number} gpus - Number of GPUs
  * @property {boolean} available - Whether this flavor is available
  * @property {boolean} microservice - Whether this flavor is suitable for running microservice
- * @property {boolean} machine_learning - Whether this flavor is suitable for running machine learning processes
+ * @property {boolean} machineLearning - Whether this flavor is suitable for running machine learning processes
  */

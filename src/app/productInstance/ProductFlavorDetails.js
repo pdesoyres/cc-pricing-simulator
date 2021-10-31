@@ -2,6 +2,8 @@ import './ProductFlavorDetails.css';
 import { classnames } from '../../utils/classnames';
 import { KeyValuePairs, KeyValuePair } from '../../components/KeyValuePairs';
 import { Numeric } from '../../components/Numeric';
+import { Tag } from '../../components/Tag';
+import { MachineLearningSvg, MicroserviceSvg } from '../../utils/icons';
 
 /**
  * Displays the details of a product flavor using {@link KeyValuePairs} component:
@@ -10,6 +12,9 @@ import { Numeric } from '../../components/Numeric';
  *   <li>Number of GPUs
  *   <li>Amount of memory
  * </ul>
+ *
+ * Also displays whether the product flavor is suitable for microservice, or for machine learning. Those two
+ * elements are displayed using the {@link Tag} component.
  *
  * @param {ProductFlavorModel} productFlavor
  * @param {string} className
@@ -27,10 +32,9 @@ export const ProductFlavorDetails = ({
       <KeyValuePair pKey="Memory" value={<Numeric value={productFlavor.mem} precision={2} unit="MiB"/>}/>
     </KeyValuePairs>
 
-    <div className='tp-product-flavor-details-label'>GPUs</div>
-    <div className='tp-product-flavor-details-value'><Numeric value={productFlavor.gpus}/></div>
-
-    <div className='tp-product-flavor-details-label'>Memory</div>
-    <div className='tp-product-flavor-details-value'><Numeric value={productFlavor.mem} precision={2} unit='MiB'/></div>
+    <div className="tp-product-flavor-details-tags">
+      {productFlavor.microservice ? <Tag label="Microservice" icon={MicroserviceSvg}/> : null}
+      {productFlavor.machineLearning ? <Tag label="Machine learning" icon={MachineLearningSvg}/> : null}
+    </div>
   </div>;
 };

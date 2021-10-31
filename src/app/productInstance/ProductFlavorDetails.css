@@ -1,13 +1,18 @@
 .tp-product-flavor-details {
     display: grid;
-    grid-template-columns: max-content 1fr;
-    grid-row-gap: 0.1em;
-    grid-column-gap: 0.3em;
+    grid-column-gap: 2em;
+    grid-template-columns: 1fr 2fr;
+    align-content: flex-start;
 }
 
-.tp-product-flavor-details .tp-product-flavor-details-label {
-    font-weight: bold;
-}
-.tp-product-flavor-details .tp-product-flavor-details-value {
+.tp-product-flavor-details .tp-product-flavor-details-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
 
+
+}
+.tp-product-flavor-details .tp-product-flavor-details-tags > div {
+    margin: 0 0.6em 0.6em 0;
 }
