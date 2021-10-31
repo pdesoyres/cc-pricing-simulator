@@ -1,0 +1,44 @@
+.tp-invoicing-simulator {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: max-content 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 0.8em;
+
+    min-height: 0;
+    padding: 1em;
+    background-color: var(--cc-color-bg-light);
+}
+
+.tp-invoicing-simulator .tp-invoicing-simulator-header {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    justify-self: end;
+    padding-right: 1em;
+
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.tp-invoicing-simulator .tp-invoicing-simulator-list {
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    background-color: var(--cc-color-bg-white);
+    border: 1px solid var(--cc-color-border);
+    border-radius: var(--cc-border-radius-large);;
+
+    padding: 0.3em;
+}
+
+.tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item {
+    padding: 0.3em;
+    border-bottom: 1px solid var(--cc-color-border-light);
+}
+
+.tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item:not(:first-child):not(:last-child) {
+    margin: 0.15em 0;
+}

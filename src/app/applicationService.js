@@ -21,7 +21,7 @@ class ApplicationService {
    * @return {Promise<void>}
    */
   async init() {
-    this._productInstances = await productInstancesService.getProductInstances();
+    this._productInstances = await productInstancesService.getProductInstances(true);
   }
 
   /**

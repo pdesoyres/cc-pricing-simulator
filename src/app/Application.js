@@ -1,12 +1,12 @@
 import './Application.css';
 import { Component } from 'react';
 import { Spinner } from '../components/Spinner';
-import { applicationService } from './applicationService';
 import { InvoicingSimulator } from './invoicingSimulator/InvoicingSimulator';
+import { applicationService } from './applicationService';
 
 /**
- * This the root component of our application. It has the ability to:
- *  <ul>
+ * This is the root component of our application. It has the ability to:
+ * <ul>
  *  <li> display a spinner while application is loading
  *  <li> display an error if something went wrong during loading phase
  *  <li> display the invoicing simulator

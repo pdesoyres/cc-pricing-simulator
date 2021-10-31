@@ -1,0 +1,50 @@
+.tp-invoicing-list-item {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-areas: "logo    title   title"
+                         "details details button";
+    grid-row-gap: 0.3em;
+    grid-column-gap: 0.5em;
+    align-items: center;
+
+    position: relative;/* for disableReason display */
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-logo {
+    grid-area: logo;
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-title {
+    grid-area: title;
+
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-details {
+    grid-area: details;
+
+    color: var(--cc-color-text-light);
+    padding-left: 0.5em;
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-button {
+    grid-area: button;
+
+    align-self: end;
+}
+
+.tp-invoicing-list-item.disabled {
+    opacity: 0.5;
+}
+
+.tp-invoicing-list-item.disabled .tp-invoicing-list-item-disabledReason {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    transform: rotate(-25deg);
+
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--cc-color-danger);
+}
