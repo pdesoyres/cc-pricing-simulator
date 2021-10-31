@@ -13,7 +13,8 @@ export const Button = ({
 }) => {
   return <button type="button"
                  className={classnames('cc-button', className, intent, disabled ? 'disabled' : null)}
-                 onClick={disabled ? null : onClick} title={label} aria-label={label}>
+                 onClick={disabled ? null : onClick} title={label} aria-label={label}
+                 tabIndex={disabled ? -1 : null}>
     {icon ? <div className="cc-button-icon"><Icon svg={icon}/></div> : null}
     {label ? <div className="cc-button-label">{label}</div> : null}
     {rightIcon ? <div className="cc-button-icon"><Icon svg={rightIcon}/></div> : null}

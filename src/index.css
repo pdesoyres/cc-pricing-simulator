@@ -24,3 +24,7 @@ body {
   color: var(--cc-color-text-normal);
   font-size: 0.75vw;
 }
+
+*:focus {
+  outline: 1px solid var(--cc-color-border-dark);
+}

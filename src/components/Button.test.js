@@ -65,3 +65,9 @@ it('should not trigger onClick callback when disabled', () => {
   container.querySelector('button.cc-button').click();
   expect(onClick).not.toBeCalled();
 });
+
+it('should have tab-index set to -1 when disabled', () => {
+  const { container } = render(<Button disabled={true}/>);
+  const e = container.querySelector('button.cc-button.disabled');
+  expect(e.tabIndex).toBe(-1);
+});

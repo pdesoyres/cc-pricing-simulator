@@ -28,14 +28,14 @@ button.cc-button {
 
 /* state */
 .cc-button:focus {
-    box-shadow: 0 1px 3px #8a9ba8;
-    outline: 0;
+    box-shadow: 0 0 3px 0 var(--cc-button-bg-color);
 }
 .cc-button:not(.disabled):hover {
-    box-shadow: 0 1px 3px #8a9ba8;
+    box-shadow: 0 0 3px 0 var(--cc-button-bg-color);
 }
 .cc-button:not(.disabled):active {
-    box-shadow: 0 1px 3px #5c7080;
+    box-shadow: 0 0 3px 0 var(--cc-button-bg-color);
+    outline: none;
 }
 
 
