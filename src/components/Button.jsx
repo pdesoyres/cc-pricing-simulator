@@ -1,6 +1,6 @@
 import './Button.css';
 import { classnames } from '../utils/classnames';
-import { Intents } from './Intents';
+import { resolveIntent } from './Intents';
 import { Icon } from './Icon';
 
 /**
@@ -9,7 +9,7 @@ import { Icon } from './Icon';
  * @param {ReactComponent} icon - Left icon
  * @param {ReactComponent} rightIcon - Right icon
  * @param {string} label - Label
- * @param {undefined|'normal'|'primary'|'success'|'danger'} intent - Intent to give to this button. {@see Intents}
+ * @param {undefined|Intent} intent - Intent to give to this button
  * @param {boolean} disabled - Whether the button should be disabled
  * @param {string} className - the class to give to the button
  * @param {function} onClick - the on click handler
@@ -23,13 +23,20 @@ export const Button = ({
   intent,
   disabled,
   className,
-  onClick
+  onClick,
 }) => {
-  const resolvedIntent = Object.values(Intents).indexOf(intent) === -1 ? 'normal' : intent;
+  let cls = classnames(
+    'cc-button',
+    className,
+    resolveIntent(intent),
+    disabled ? 'disabled' : null
+  );
 
   return <button type="button"
-                 className={classnames('cc-button', className, resolvedIntent, disabled ? 'disabled' : null)}
-                 onClick={disabled ? null : onClick} title={label} aria-label={label}
+                 className={cls}
+                 title={label}
+                 aria-label={label}
+                 onClick={disabled ? null : onClick}
                  tabIndex={disabled ? -1 : null}>
     {icon ? <div className="cc-button-icon"><Icon svg={icon}/></div> : null}
     {label ? <div className="cc-button-label">{label}</div> : null}
