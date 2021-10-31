@@ -11,8 +11,8 @@ it('should contain an svg element', () => {
 it('should have the default size', () => {
   const { container } = render(<Icon svg={TrashSvg}/>);
   const svg = container.querySelector('svg.cc-icon');
-  expect(svg.getAttribute("width")).toBe("16");
-  expect(svg.getAttribute("height")).toBe("16");
+  expect(svg.getAttribute("width")).toBe("1em");
+  expect(svg.getAttribute("height")).toBe("1em");
 });
 
 it('should have no fill attribute by default', () => {
