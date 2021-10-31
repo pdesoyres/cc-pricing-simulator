@@ -1,7 +1,4 @@
 button.cc-button {
-    /*--cc-button-bg-color: var(--cc-color-bg-light);*/
-    /*--cc-button-color: var(--cc-color-text-normal);*/
-
     display: flex;
     align-items: center;
 
