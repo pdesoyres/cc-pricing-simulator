@@ -30,7 +30,10 @@ export class Application extends Component {
   }
 
   renderLoading() {
-    return <div className="tp-loading"><Spinner/></div>;
+    return <div className="tp-loading">
+      <Spinner/>
+      <span className='tp-loading-message'>Please wait while the application is loading...</span>
+    </div>;
   }
 
   renderError(error) {

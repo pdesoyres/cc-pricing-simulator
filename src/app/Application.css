@@ -7,6 +7,14 @@
 .tp-application .tp-loading {
     align-self: center;
     justify-self: center;
+
+    display: flex;
+    align-items: center;
+}
+
+.tp-application .tp-loading .tp-loading-message {
+    font-weight: bold;
+    margin-left: 1em;
 }
 
 .tp-application .tp-loading-error {
