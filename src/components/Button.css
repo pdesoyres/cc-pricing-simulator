@@ -1,6 +1,6 @@
 button.cc-button {
-    --cc-button-bg-color: var(--cc-color-bg-light);
-    --cc-button-color: var(--cc-color-text-normal);
+    /*--cc-button-bg-color: var(--cc-color-bg-light);*/
+    /*--cc-button-color: var(--cc-color-text-normal);*/
 
     display: flex;
     align-items: center;
@@ -40,6 +40,11 @@ button.cc-button {
 
 
 /* intent */
+.cc-button.normal {
+    --cc-button-bg-color: var(--cc-color-normal);
+    --cc-button-color: var(--cc-color-text-normal);
+}
+
 .cc-button.primary {
     --cc-button-bg-color: var(--cc-color-primary);
     --cc-button-color: #fff;

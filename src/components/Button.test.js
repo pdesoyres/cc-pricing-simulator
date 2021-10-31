@@ -20,6 +20,12 @@ it('should have no icon by default', () => {
   expect(e).toBeNull();
 });
 
+it('should have normal intent by default', () => {
+  const { container } = render(<Button />);
+  const e = container.querySelector('div.cc-button-label.normal');
+  expect(e).toBeNull();
+});
+
 it('should have the given label', () => {
   const { container } = render(<Button label="label"/>);
   const e = container.querySelector('div.cc-button-label');
@@ -44,6 +50,12 @@ it('should have the given intent', () => {
   const { container } = render(<Button intent="danger"/>);
   const e = container.querySelector('button.cc-button.danger');
   expect(e).not.toBeNull();
+});
+
+it('should fallback to normal intent when given intent is not supported', () => {
+  const { container } = render(<Button intent='unsupported'/>);
+  const e = container.querySelector('div.cc-button-label.normal');
+  expect(e).toBeNull();
 });
 
 it('should be disabled', () => {
