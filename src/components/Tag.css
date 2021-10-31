@@ -1,0 +1,49 @@
+.cc-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9em;
+    padding: 1px 3px;
+    border-radius: var(--cc-border-radius-small);
+    border-style: solid;
+    border-width: 1px;
+    color: var(--cc-tag-color);
+}
+
+/* intent */
+.cc-tag.normal {
+    background-color: var(--cc-color-normal);
+    border-color: var(--cc-color-border-dark);
+    color: var(--cc-color-text-normal);
+}
+
+.cc-tag.primary {
+    background-color: var(--cc-color-primary);
+    border-color: var(--cc-color-primary-dark);
+    --cc-tag-color: #fff;
+}
+
+.cc-tag.success {
+    background-color: var(--cc-color-success);
+    border-color: var(--cc-color-success-dark);
+    --cc-tag-color: #fff;
+}
+
+.cc-tag.danger {
+    background-color: var(--cc-color-danger);
+    border-color: var(--cc-color-danger-dark);
+    --cc-tag-color: #fff;
+}
+
+/* icon */
+.cc-tag > .cc-tag-icon {
+    display: contents;
+}
+.cc-tag > .cc-tag-icon > svg:not([fill]) {
+    fill: var(--cc-tag-color);
+}
+
+/* label */
+.cc-tag > .cc-tag-label {
+    margin-right: 0.3em;
+    margin-left: 0.3em;
+}

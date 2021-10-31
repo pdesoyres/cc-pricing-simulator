@@ -4,10 +4,14 @@
 
   --cc-color-normal: #d8e1e8;
   --cc-color-primary: #26547c;
+  --cc-color-primary-dark: #122739;
   --cc-color-success: #0f9960;
+  --cc-color-success-dark: #005245;
   --cc-color-danger: #c23030;
+  --cc-color-danger-dark: #9e2b0e;
 
-  --cc-color-border-dark: #8a9ba8;
+  --cc-color-border-dark: #202b33;
+  --cc-color-border: #8a9ba8;
   --cc-color-border-light: #d8e1e8;
 
   --cc-color-bg-white: #fff;
