@@ -23,7 +23,14 @@ class ProductInstancesService {
    * @private
    */
   async _fetchProductInstances() {
-    const response = await fetch('https://api.clever-cloud.com/v2/products/instances');
+    let response;
+    try {
+      response = await fetch('https://api.clever-cloud.com/v2/products/instances');
+    } catch (e) {
+      throw new Error(
+        `We could not fetch product instances. ${e.message} Please retry later.`);
+    }
+
     if (!response.ok) {
       throw new Error(
         `We could not fetch product instances. Server responded with error ${response.status}. Please retry later.`);
