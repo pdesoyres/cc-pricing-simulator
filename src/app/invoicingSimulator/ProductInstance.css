@@ -1,3 +1,4 @@
 .tp-product-instance.selected {
     padding-left: 0.5em;
+    transition: padding-left 0.1s ease;
 }
