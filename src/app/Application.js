@@ -1,7 +1,7 @@
 import './Application.css';
 import { Component } from 'react';
 import { Spinner } from '../components/Spinner';
-import { InvoicingSimulator } from './invoicingSimulator/InvoicingSimulator';
+import { withMultiTabSyncInvoicingSimulator } from './invoicingSimulator/InvoicingSimulator';
 import { applicationService } from './applicationService';
 
 /**
@@ -41,7 +41,7 @@ export class Application extends Component {
   }
 
   renderInvoicingSimulator(productInstances) {
-    return <InvoicingSimulator productInstances={productInstances}/>;
+    return withMultiTabSyncInvoicingSimulator(productInstances, 'invoicing-simulator');
   }
 
   renderApplication() {

@@ -2,10 +2,12 @@ import './InvoicingSimulator.css';
 import { Component } from 'react';
 import { List } from '../../components/List';
 import { Numeric } from '../../components/Numeric';
+import { withBroadcastChannel } from '../../utils/broadcast/withBroadcastChannel';
 import { ProductFlavor } from './ProductFlavor';
 import { ProductInstance } from './ProductInstance';
 import { SelectedFlavor } from './SelectedFlavor';
 import { productFlavorComparator, productInstanceComparator } from '../productInstance/productInstanceComparators';
+import { shallowEqual } from '../../utils/shallowEqual';
 
 /**
  * This component is a Clever Cloud Invoicing Simulator. It helps user to select some product flavors and see the cost
@@ -145,4 +147,48 @@ export class InvoicingSimulator extends Component {
       {this.renderSelectedFlavors()}
     </div>;
   }
+
+  //-- Handle channel messaging ------
+
+  componentDidMount() {
+    // we subscribe and handle messages emitted on an potential channel.
+    this.props.channel?.subscribe().onMessage((data) => {
+      // we decode message into a list of flavors
+      const selectedFlavors = data
+        .map(d => {
+          return this.props.productInstances
+            .flatMap(p => p.flavors)
+            .find(f => f.instance.id === d.instanceId && f.name === d.flavor);
+        })
+        .filter(e => e !== undefined);
+
+      // we change the selectedFlavors state to reflect the received message
+      this.setState({ selectedFlavors: selectedFlavors });
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // here we detect selected flavors modifications and we emit a message containing the selected flavors.
+    if (this.props.channel) {
+      if (!shallowEqual(prevState?.selectedFlavors, this.state?.selectedFlavors)) {
+        this.props.channel.emit(this.state.selectedFlavors.map(f => ({
+          instanceId: f.instance.id,
+          flavor: f.name
+        })));
+      }
+    }
+  }
+}
+
+/**
+ * This is an enhanced version of the InvoicingSimulator component where all tabs of the same navigator
+ * will have the selected flavors list synchronized.
+ *
+ * @param productInstances
+ * @param channelName
+ * @return {JSX.Element}
+ */
+export const withMultiTabSyncInvoicingSimulator = (productInstances, channelName) => {
+  const MultiTabInvoicingSimulator = withBroadcastChannel(InvoicingSimulator, channelName);
+  return <MultiTabInvoicingSimulator productInstances={productInstances}/>;
 }
