@@ -68,6 +68,7 @@ export class InvoicingSimulator extends Component {
       itemId={this.productInstanceItemId}
       itemRenderer={this.productInstanceRenderer}
       items={this.props.productInstances.sort(productInstanceComparator)}
+      emptyState='No product available'
     />;
   }
 
@@ -99,6 +100,7 @@ export class InvoicingSimulator extends Component {
       itemId={this.productFlavorItemId}
       itemRenderer={this.productFlavorRenderer}
       items={selectableFlavors}
+      emptyState='Select a product to view flavors'
     />;
   }
 
@@ -122,6 +124,7 @@ export class InvoicingSimulator extends Component {
       itemId={this.productFlavorItemId}
       itemRenderer={this.selectedFlavorRenderer}
       items={this.state.selectedFlavors}
+      emptyState='Your selection is empty'
     />;
   }
 
