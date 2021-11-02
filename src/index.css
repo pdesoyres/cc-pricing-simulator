@@ -27,7 +27,7 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
   color: var(--cc-color-text-normal);
-  font-size: 0.75vw;
+  font-size: 14px;
 }
 
 *:focus {
