@@ -1,6 +1,7 @@
 .tp-product-flavor-title {
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .tp-product-flavor-title .tp-product-flavor-title-instance {
