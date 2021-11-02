@@ -32,6 +32,7 @@
     margin-bottom: 6px;
 
     padding: 0.8em;
+    overflow-x: hidden;
 }
 
 .tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-empty-state {
