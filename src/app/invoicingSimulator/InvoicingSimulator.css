@@ -28,10 +28,10 @@
     overflow-y: auto;
 
     background-color: var(--cc-color-bg-white);
-    border: 1px solid var(--cc-color-border);
-    border-radius: var(--cc-border-radius-large);;
+    box-shadow: 1px 1px 6px 2px var(--cc-color-border-light);
+    margin-bottom: 6px;
 
-    padding: 0.3em;
+    padding: 0.8em;
 }
 
 .tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-empty-state {
@@ -47,12 +47,16 @@
 
 .tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item {
     padding: 0.3em;
-    border-bottom: 1px solid var(--cc-color-border-light);
+    /*border: 1px solid var(--cc-color-border-light);*/
+
+    box-shadow: 1px 1px 3px 1px var(--cc-color-border-light);
+    margin-bottom: 6px;
+
     animation: show .2s ease-in-out;
 }
 
-.tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item:not(:first-child):not(:last-child) {
-    margin: 0.15em 0;
+.tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item:last-child {
+    margin-bottom: 0;
 }
 
 @keyframes show {
