@@ -47,10 +47,9 @@
 
 .tp-invoicing-simulator .tp-invoicing-simulator-list .cc-list-item {
     padding: 0.3em;
-    /*border: 1px solid var(--cc-color-border-light);*/
 
     box-shadow: 1px 1px 3px 1px var(--cc-color-border-light);
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 
     animation: show .2s ease-in-out;
 }
