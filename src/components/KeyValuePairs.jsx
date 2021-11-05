@@ -40,15 +40,19 @@ export const KeyValuePairs = ({
  *
  * @param {string|ReactNode} pKey
  * @param {string|ReactNode} value
+ * @param {string} keyClassName
+ * @param {string} valueClassName
  * @return {JSX.Element}
  * @constructor
  */
 export const KeyValuePair = ({
   pKey,
   value,
+  keyClassName,
+  valueClassName,
 }) => {
   return <>
-    <div className='cc-key-value-pair-key'>{pKey}</div>
-    <div className='cc-key-value-pair-value'>{value}</div>
+    <div className={classnames('cc-key-value-pair-key', keyClassName)}>{pKey}</div>
+    <div className={classnames('cc-key-value-pair-value', valueClassName)}>{value}</div>
   </>
 };

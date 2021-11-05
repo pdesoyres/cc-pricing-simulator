@@ -24,3 +24,15 @@ test('should not add non KeyValuePair elements', () => {
   const e = container.querySelector('.test-class');
   expect(e).toBeNull();
 });
+
+test('should set key class to KeyValuePair elements', () => {
+  const { container } = render(<KeyValuePairs><KeyValuePair keyClassName='key-class'/></KeyValuePairs>);
+  const e = container.querySelector('div.key-class');
+  expect(e).not.toBeNull();
+});
+
+test('should set value class to KeyValuePair elements', () => {
+  const { container } = render(<KeyValuePairs><KeyValuePair valueClassName='value-class'/></KeyValuePairs>);
+  const e = container.querySelector('div.value-class');
+  expect(e).not.toBeNull();
+});
