@@ -1,8 +1,8 @@
-import './InvoicingListItem.css';
+import './ListItem.css';
 import { classnames } from '../../utils/classnames';
 
 /**
- * This component displays an item of the lists displayed in the {@see InvoicingSimulator} component.
+ * This component displays an item of the lists displayed in the {@see PricingSimulator} component.
  * It makes all the items displayed in those lists to be displayed in a common way.
  * <p>It has the ability to be displayed in a disabled mode. In this case, the opacity is set to 50%.
  * It is also possible to give the reason of that, and if specified, it is displayed over the disabled component.
@@ -17,7 +17,7 @@ import { classnames } from '../../utils/classnames';
  * @return {JSX.Element}
  * @constructor
  */
-export const InvoicingListItem = ({
+export const ListItem = ({
   logo,
   title,
   details,
@@ -26,18 +26,18 @@ export const InvoicingListItem = ({
   disabled = false,
   disabledReason,
 }) => {
-  return <div className={classnames('tp-invoicing-list-item', className, disabled ? 'disabled' : null)}>
-    <div className='tp-invoicing-list-item-header'>
-      <div className="tp-invoicing-list-item-logo">{logo}</div>
-      <div className="tp-invoicing-list-item-title">{title}</div>
+  return <div className={classnames('tp-list-item', className, disabled ? 'disabled' : null)}>
+    <div className='tp-list-item-header'>
+      <div className="tp-list-item-logo">{logo}</div>
+      <div className="tp-list-item-title">{title}</div>
     </div>
-    <div className='tp-invoicing-list-item-body'>
-      <div className="tp-invoicing-list-item-details">{details}</div>
-      <div className="tp-invoicing-list-item-button">{button}</div>
+    <div className='tp-list-item-body'>
+      <div className="tp-list-item-details">{details}</div>
+      <div className="tp-list-item-button">{button}</div>
     </div>
     {
       (disabled && disabledReason)
-        ? <div className="tp-invoicing-list-item-disabledReason">{disabledReason}</div>
+        ? <div className="tp-list-item-disabledReason">{disabledReason}</div>
         : null
     }
   </div>;

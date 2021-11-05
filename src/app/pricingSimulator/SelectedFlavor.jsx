@@ -1,17 +1,16 @@
-import './ProductFlavor.css';
+import './SelectedFlavor.css';
 import { classnames } from '../../utils/classnames';
-import { InvoicingListItem } from './InvoicingListItem';
+import { ListItem } from './ListItem';
 import { ProductInstanceLogo } from '../productInstance/ProductInstanceLogo';
 import { ProductFavorTitle } from '../productInstance/ProductFlavorTitle';
 import { ProductFlavorDetails } from '../productInstance/ProductFlavorDetails';
 import { Button } from '../../components/Button';
-import { ChevronRightSvg } from '../../utils/icons';
+import { TrashSvg } from '../../utils/icons';
 
 /**
- * This component displays a product flavor. It uses the {@see InvoicingListItem} component for placing
+ * This component displays a selected product flavor. It uses the {@see ListItem} component for placing
  * information in a common way.
- * <p>The button is designed to be an 'add' button with a 'success' intent.
- * <p>If the product flavor is not available, it is displayed and the button is disabled.
+ * <p>The button is designed to be a 'remove' button with a 'danger' intent.
  *
  * @param {ProductFlavorModel} productFlavor
  * @param {string} className
@@ -19,24 +18,21 @@ import { ChevronRightSvg } from '../../utils/icons';
  * @return {JSX.Element}
  * @constructor
  */
-export const ProductFlavor = ({
+export const SelectedFlavor = ({
   productFlavor,
   className,
-  onButtonClick
+  onButtonClick,
 }) => {
-  const disabled = !productFlavor.available;
+  const cls = classnames('tp-selected-flavor', className);
 
-  return <InvoicingListItem
-    className={classnames('tp-product-flavor', className)}
+  return <ListItem
+    className={cls}
     logo={<ProductInstanceLogo productInstance={productFlavor.instance}/>}
     title={<ProductFavorTitle productFlavor={productFlavor}/>}
     details={<ProductFlavorDetails productFlavor={productFlavor}/>}
-    button={<Button label="Add"
-                    rightIcon={ChevronRightSvg}
-                    disabled={disabled}
-                    intent="success"
+    button={<Button label="Remove"
+                    icon={TrashSvg}
+                    intent="danger"
                     onClick={onButtonClick}/>}
-    disabled={disabled}
-    disabledReason='Not available'
   />;
 };

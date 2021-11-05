@@ -1,4 +1,4 @@
-.tp-invoicing-list-item {
+.tp-list-item {
     display: grid;
     grid-template-rows: max-content 1fr;
     grid-row-gap: 0.3em;
@@ -7,41 +7,41 @@
     overflow: hidden;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-header {
+.tp-list-item .tp-list-item-header {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-body {
+.tp-list-item .tp-list-item-body {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-logo {
+.tp-list-item .tp-list-item-logo {
     margin-right: 0.3em;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-title {
+.tp-list-item .tp-list-item-title {
     flex: 1;
     font-size: 1.5em;
     font-weight: 600;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-details {
+.tp-list-item .tp-list-item-details {
     flex: 1;
     color: var(--cc-color-text-light);
     padding-left: 0.5em;
 }
 
-.tp-invoicing-list-item .tp-invoicing-list-item-button {
+.tp-list-item .tp-list-item-button {
     align-self: end;
 }
 
-.tp-invoicing-list-item.disabled {
+.tp-list-item.disabled {
     opacity: 0.5;
 }
 
-.tp-invoicing-list-item.disabled .tp-invoicing-list-item-disabledReason {
+.tp-list-item.disabled .tp-list-item-disabledReason {
     position: absolute;
     align-self: center;
     justify-self: center;

@@ -1,12 +1,12 @@
 import './ProductInstance.css';
 import { classnames } from '../../utils/classnames';
-import { InvoicingListItem } from './InvoicingListItem';
+import { ListItem } from './ListItem';
 import { ProductInstanceLogo } from '../productInstance/ProductInstanceLogo';
 import { Button } from '../../components/Button';
 import { ChevronRightSvg } from '../../utils/icons';
 
 /**
- * This component displays a product instance. It uses the {@see InvoicingListItem} component for placing
+ * This component displays a product instance. It uses the {@see ListItem} component for placing
  * information in a common way.
  * <p>The button is designed to be a 'select' button with a 'normal' intent.
  * <p>If the product instance is not enabled or is coming soon, it is displayed and the button is disabled.
@@ -33,7 +33,7 @@ export const ProductInstance = ({
     selected ? 'selected' : null,
   );
 
-  return <InvoicingListItem
+  return <ListItem
     className={cls}
     logo={<ProductInstanceLogo productInstance={productInstance}/>}
     title={productInstance.name}

@@ -1,7 +1,7 @@
 import './Application.css';
 import { Component } from 'react';
 import { Spinner } from '../components/Spinner';
-import { withMultiTabSyncInvoicingSimulator } from './invoicingSimulator/InvoicingSimulator';
+import { withMultiTabSyncPricingSimulator } from './pricingSimulator/PricingSimulator';
 import { applicationService } from './applicationService';
 
 /**
@@ -9,7 +9,7 @@ import { applicationService } from './applicationService';
  * <ul>
  *  <li> display a spinner while application is loading
  *  <li> display an error if something went wrong during loading phase
- *  <li> display the invoicing simulator
+ *  <li> display the pricing simulator
  * </ul>
  */
 export class Application extends Component {
@@ -40,8 +40,8 @@ export class Application extends Component {
     return <div className="tp-loading-error">{error}</div>;
   }
 
-  renderInvoicingSimulator(productInstances) {
-    return withMultiTabSyncInvoicingSimulator(productInstances, 'invoicing-simulator');
+  renderPricingSimulator(productInstances) {
+    return withMultiTabSyncPricingSimulator(productInstances, 'pricing-simulator');
   }
 
   renderApplication() {
@@ -55,7 +55,7 @@ export class Application extends Component {
       return this.renderError(error);
     }
 
-    return this.renderInvoicingSimulator(productInstances);
+    return this.renderPricingSimulator(productInstances);
   }
 
   render() {

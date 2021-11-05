@@ -1,4 +1,4 @@
-import './InvoicingSimulator.css';
+import './PricingSimulator.css';
 import { Component } from 'react';
 import { List } from '../../components/List';
 import { Numeric } from '../../components/Numeric';
@@ -10,10 +10,10 @@ import { productFlavorComparator, productInstanceComparator } from '../productIn
 import { shallowEqual } from '../../utils/shallowEqual';
 
 /**
- * This component is a Clever Cloud Invoicing Simulator. It helps user to select some product flavors and see the cost
+ * This component is a Clever Cloud Pricing Simulator. It helps user to select some product flavors and see the cost
  * of his selection.
  */
-export class InvoicingSimulator extends Component {
+export class PricingSimulator extends Component {
   state = {
     /**
      * The selected product instance.
@@ -64,7 +64,7 @@ export class InvoicingSimulator extends Component {
 
   renderProductInstances() {
     return <List
-      className="tp-invoicing-simulator-list tp-product-instances"
+      className="tp-pricing-simulator-list tp-product-instances"
       itemId={this.productInstanceItemId}
       itemRenderer={this.productInstanceRenderer}
       items={this.props.productInstances.sort(productInstanceComparator)}
@@ -96,7 +96,7 @@ export class InvoicingSimulator extends Component {
       .sort(productFlavorComparator);
 
     return <List
-      className="tp-invoicing-simulator-list tp-product-flavors"
+      className="tp-pricing-simulator-list tp-product-flavors"
       itemId={this.productFlavorItemId}
       itemRenderer={this.productFlavorRenderer}
       items={selectableFlavors}
@@ -120,7 +120,7 @@ export class InvoicingSimulator extends Component {
 
   renderSelectedFlavors() {
     return <List
-      className="tp-invoicing-simulator-list tp-selected-flavors"
+      className="tp-pricing-simulator-list tp-selected-flavors"
       itemId={this.productFlavorItemId}
       itemRenderer={this.selectedFlavorRenderer}
       items={this.state.selectedFlavors}
@@ -134,7 +134,7 @@ export class InvoicingSimulator extends Component {
   renderHeader() {
     const totalPrice = this.state.selectedFlavors.map(f => f.price).reduce((a, b) => a + b, 0);
 
-    return <div className="tp-invoicing-simulator-header">
+    return <div className="tp-pricing-simulator-header">
       Total: <Numeric value={totalPrice} precision={2} unit="€"/>
     </div>;
   }
@@ -143,7 +143,7 @@ export class InvoicingSimulator extends Component {
   //-- Main renderer ------
 
   render() {
-    return <div className="tp-invoicing-simulator">
+    return <div className="tp-pricing-simulator">
       {this.renderHeader()}
       {this.renderProductInstances()}
       {this.renderProductFlavors()}
@@ -184,14 +184,14 @@ export class InvoicingSimulator extends Component {
 }
 
 /**
- * This is an enhanced version of the InvoicingSimulator component where all tabs of the same navigator
+ * This is an enhanced version of the PricingSimulator component where all tabs of the same navigator
  * will have the selected flavors list synchronized.
  *
  * @param productInstances
  * @param channelName
  * @return {JSX.Element}
  */
-export const withMultiTabSyncInvoicingSimulator = (productInstances, channelName) => {
-  const MultiTabInvoicingSimulator = withBroadcastChannel(InvoicingSimulator, channelName);
-  return <MultiTabInvoicingSimulator productInstances={productInstances}/>;
+export const withMultiTabSyncPricingSimulator = (productInstances, channelName) => {
+  const MultiTabPricingSimulator = withBroadcastChannel(PricingSimulator, channelName);
+  return <MultiTabPricingSimulator productInstances={productInstances}/>;
 }
