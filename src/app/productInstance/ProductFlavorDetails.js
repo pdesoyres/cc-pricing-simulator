@@ -27,14 +27,25 @@ export const ProductFlavorDetails = ({
 }) => {
   return <div className={classnames('tp-product-flavor-details', className)}>
     <KeyValuePairs>
-      <KeyValuePair pKey="CPUs" value={<Numeric value={productFlavor.cpus}/>}/>
-      <KeyValuePair pKey="GPUs" value={<Numeric value={productFlavor.gpus}/>}/>
-      <KeyValuePair pKey="Memory" value={<Numeric value={productFlavor.mem} precision={2} unit="MiB"/>}/>
+      <KeyValuePair pKey="CPUs" value={<Numeric value={productFlavor.cpus}/>}
+                    valueClassName='tp-text-ellipsis'/>
+      <KeyValuePair pKey="GPUs" value={<Numeric value={productFlavor.gpus}/>}
+                    valueClassName='tp-text-ellipsis'/>
+      <KeyValuePair pKey="Memory" value={<Numeric value={productFlavor.mem} precision={2} unit="MiB"/>}
+                    valueClassName='tp-text-ellipsis'/>
     </KeyValuePairs>
 
     <div className="tp-product-flavor-details-tags">
-      {productFlavor.microservice ? <Tag label="Microservice" icon={MicroserviceSvg}/> : null}
-      {productFlavor.machineLearning ? <Tag label="Machine learning" icon={MachineLearningSvg}/> : null}
+      {
+        productFlavor.microservice
+          ? <Tag label="Microservice" icon={MicroserviceSvg}/>
+          : null
+      }
+      {
+        productFlavor.machineLearning
+          ? <Tag label="Machine learning" icon={MachineLearningSvg}/>
+          : null
+      }
     </div>
   </div>;
 };

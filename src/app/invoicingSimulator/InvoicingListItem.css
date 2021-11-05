@@ -1,36 +1,39 @@
 .tp-invoicing-list-item {
     display: grid;
-    grid-template-columns: max-content 1fr max-content;
-    grid-template-areas: "logo    title   title"
-                         "details details button";
+    grid-template-rows: max-content 1fr;
     grid-row-gap: 0.3em;
-    grid-column-gap: 0.5em;
-    align-items: center;
 
     position: relative;/* for disableReason display */
+    overflow: hidden;
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tp-invoicing-list-item .tp-invoicing-list-item-body {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tp-invoicing-list-item .tp-invoicing-list-item-logo {
-    grid-area: logo;
+    margin-right: 0.3em;
 }
 
 .tp-invoicing-list-item .tp-invoicing-list-item-title {
-    grid-area: title;
-
+    flex: 1;
     font-size: 1.5em;
     font-weight: 600;
 }
 
 .tp-invoicing-list-item .tp-invoicing-list-item-details {
-    grid-area: details;
-
+    flex: 1;
     color: var(--cc-color-text-light);
     padding-left: 0.5em;
 }
 
 .tp-invoicing-list-item .tp-invoicing-list-item-button {
-    grid-area: button;
-
     align-self: end;
 }
 

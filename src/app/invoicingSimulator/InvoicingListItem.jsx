@@ -27,10 +27,14 @@ export const InvoicingListItem = ({
   disabledReason,
 }) => {
   return <div className={classnames('tp-invoicing-list-item', className, disabled ? 'disabled' : null)}>
-    <div className="tp-invoicing-list-item-logo">{logo}</div>
-    <div className="tp-invoicing-list-item-title">{title}</div>
-    <div className="tp-invoicing-list-item-details">{details}</div>
-    <div className="tp-invoicing-list-item-button">{button}</div>
+    <div className='tp-invoicing-list-item-header'>
+      <div className="tp-invoicing-list-item-logo">{logo}</div>
+      <div className="tp-invoicing-list-item-title">{title}</div>
+    </div>
+    <div className='tp-invoicing-list-item-body'>
+      <div className="tp-invoicing-list-item-details">{details}</div>
+      <div className="tp-invoicing-list-item-button">{button}</div>
+    </div>
     {
       (disabled && disabledReason)
         ? <div className="tp-invoicing-list-item-disabledReason">{disabledReason}</div>

@@ -33,3 +33,8 @@ body {
 *:focus {
   outline: 1px solid var(--cc-color-border-dark);
 }
+
+.tp-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -36,7 +36,7 @@
 
 /* icon */
 .cc-tag > .cc-tag-icon {
-    display: contents;
+    display: flex;
 }
 .cc-tag > .cc-tag-icon > svg:not([fill]) {
     fill: var(--cc-tag-color);
