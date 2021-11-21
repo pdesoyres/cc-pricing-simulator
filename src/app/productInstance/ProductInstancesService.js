@@ -5,12 +5,17 @@ class ProductInstancesService {
   /**
    * Fetches product instances from Clever Cloud API and convert them into {@link ProductInstanceModel}.
    *
-   * @param preloadProductLogos - Whether to preload product instance image.
+   * @param preloadProductLogos - Whether to preload product instances' logo.
    * @return {Promise<Array<ProductInstanceModel>>}
    */
-  async getProductInstances(preloadProductLogos = false) {
-    return (await this._fetchProductInstances())
-      .map(i => this._productInstanceConverter(i, preloadProductLogos));
+  async getProductInstances(preloadProductLogos = false){
+    const result = (await this._fetchProductInstances()).map(i => this._productInstanceConverter(i));
+
+    if (preloadProductLogos) {
+      await Promise.all(result.map(r => this._preloadImage(r.logo)));
+    }
+
+    return result;
   }
 
   //-- private methods ------
@@ -44,11 +49,10 @@ class ProductInstancesService {
    * <p>For legacy reason, the price coming from the API is multiplied by `41.904`.
    *
    * @param {any} rawProductInstance - The raw product instance as received from Clever Cloud API
-   * @param {boolean} preloadLogo - Whether to preload the product logo image
    * @return {ProductInstanceModel}
    * @private
    */
-  _productInstanceConverter(rawProductInstance, preloadLogo = false) {
+  _productInstanceConverter(rawProductInstance) {
     const productInstance = {
       id: rawProductInstance.variant.id,
       name: rawProductInstance.variant.name,
@@ -72,12 +76,24 @@ class ProductInstancesService {
       machineLearning: rawProductFlavor.machine_learning,
     }));
 
-    // preload logo image
-    if (preloadLogo && productInstance.logo) {
-      new Image().src = productInstance.logo;
-    }
-
     return productInstance;
+  }
+
+  /**
+   * Forces the browser to load an image by fetching it at the given url.
+   *
+   * @param imageUrl the url of the image to load
+   * @return {Promise<Image>}
+   * @private
+   */
+  _preloadImage(imageUrl) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.src = imageUrl;
+      image.onload = resolve;
+      image.onerror = reject;
+      return image;
+    })
   }
 }
 
